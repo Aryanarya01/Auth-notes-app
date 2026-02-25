@@ -2,7 +2,7 @@ import type { NextFunction, Request, Response } from "express";
 import type { IUser } from "../models/user.js";
 import bcrypt from "bcryptjs";
 import User from "../models/user.js";
-
+import Jwt from "jsonwebtoken";
 export const Register = async (
   req: Request,
   res: Response,
@@ -47,6 +47,9 @@ export const Login = async (req:Request,res:Response,next:NextFunction):Promise<
         res.status(400).json({message : "All fields required!"});
         return;
       }
+
+      const user = await User.findOne({email});
+      if()
   }catch(err){
     res.status(500).json({message : "Server Error!"})
   }
