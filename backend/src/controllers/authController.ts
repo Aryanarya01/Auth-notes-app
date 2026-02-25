@@ -15,7 +15,9 @@ export const Register =async (req:Request,res:Response,next:NextFunction) =>{
             res.status(400).json({message : "User already exists!"});
             return;
         }
-        const hashedPassword :string = await
+        const hashedPassword :string = await bcrypt.hash("password",10);
+
+        const user = 
     }catch(err){
         res.status(500).json({message : "Server Error!"})
     }
