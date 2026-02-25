@@ -43,7 +43,10 @@ export const Register = async (
 export const Login = async (req:Request,res:Response,next:NextFunction):Promise<void>=>{
   try{
     let {email,password}:{email:string,password:string} = req.body;
-    
+      if(!email || !password){
+        res.status(400).json({message : "All fields required!"});
+        return;
+      }
   }catch(err){
     res.status(500).json({message : "Server Error!"})
   }
