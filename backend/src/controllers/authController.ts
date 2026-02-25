@@ -49,7 +49,10 @@ export const Login = async (req:Request,res:Response,next:NextFunction):Promise<
       }
 
       const user = await User.findOne({email});
-      if()
+      if(user){
+        res.status(400).json({message : "User already exists!"});
+        return;
+      }
   }catch(err){
     res.status(500).json({message : "Server Error!"})
   }
