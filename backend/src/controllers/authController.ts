@@ -3,7 +3,7 @@ import type { IUser } from "../models/user.js";
 import bcrypt from "bcryptjs";
 import User from "../models/user.js";
 
-export const Register =async (req:Request,res:Response,next:NextFunction) =>{
+export const Register =async (req:Request,res:Response,next:NextFunction): Promise<void> =>{
     try{
         let {name, email, password}: IUser = req.body;
         if(!name || !email || !password){
@@ -17,10 +17,15 @@ export const Register =async (req:Request,res:Response,next:NextFunction) =>{
         }
         const hashedPassword :string = await bcrypt.hash("password",10);
 
-        const user = User.create({
+        const user =await User.create({
             name,
             email,
             password:hashedPassword,
+        })
+        res.status(200).json({message : "User created successfully!",
+            id : user._id,
+            name : user.name,
+            email : user.email, 
         })
         
     }catch(err){
