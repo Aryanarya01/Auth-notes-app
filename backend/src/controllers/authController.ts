@@ -17,7 +17,12 @@ export const Register =async (req:Request,res:Response,next:NextFunction) =>{
         }
         const hashedPassword :string = await bcrypt.hash("password",10);
 
-        const user = 
+        const user = User.create({
+            name,
+            email,
+            password:hashedPassword,
+        })
+        
     }catch(err){
         res.status(500).json({message : "Server Error!"})
     }
