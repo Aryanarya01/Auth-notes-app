@@ -38,3 +38,13 @@ export const Register = async (
     res.status(500).json({ message: "Server Error!" });
   }
 };
+
+
+export const Login = async (req:Request,res:Response,next:NextFunction):Promise<void>=>{
+  try{
+    let {email,password}:{email:string,password:string} = req.body;
+    
+  }catch(err){
+    res.status(500).json({message : "Server Error!"})
+  }
+}
