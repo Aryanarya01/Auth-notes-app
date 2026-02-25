@@ -12,7 +12,8 @@ export const Register =async (req:Request,res:Response,next:NextFunction) =>{
         }
         const existingUser = await User.findOne({email});
         if(existingUser){
-            
+            res.status(400).json({message : "User already exists!"});
+            return;
         }
         const hashedPassword :string = await
     }catch(err){
