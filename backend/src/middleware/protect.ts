@@ -1,5 +1,6 @@
 import type { NextFunction, Request, Response } from "express";
 import Jwt from "jsonwebtoken";
+import User from "../models/user.js";
 
 interface AuthRequest extends Request {
   user?: any;
@@ -18,6 +19,8 @@ export const protect = async (
     const decoded = Jwt.verify(token, process.env.JWT_SECRET as string) as {
       id: string;
     };
+
+    const user = await User.findById(decoded.id).select("-password")
   } catch (err) {
     res.status(401).json({ message: "Invalid token!" });
   }
