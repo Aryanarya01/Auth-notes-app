@@ -46,7 +46,7 @@ export const Login = async (
   next: NextFunction,
 ): Promise<void> => {
   try {
-    let { email, password }: { email: string; password: string } =await req.body;
+    let { email, password }: { email: string; password: string } = req.body;
     if (!email || !password) {
       res.status(400).json({ message: "All fields required!" });
       return;
