@@ -26,7 +26,7 @@ export const protect = async (
         return;
     }
     req.user = user;
-    ne
+    next();
 
   } catch (err) {
     res.status(401).json({ message: "Invalid token!" });
