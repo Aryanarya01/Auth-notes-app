@@ -20,7 +20,14 @@ export const protect = async (
       id: string;
     };
 
-    const user = await User.findById(decoded.id).select("-password")
+    const user = await User.findById(decoded.id).select("-password");
+    if(!user){
+        res.status(401).json({message : "User not found!"});
+        return;
+    }
+    req.user = user;
+    ne
+
   } catch (err) {
     res.status(401).json({ message: "Invalid token!" });
   }
