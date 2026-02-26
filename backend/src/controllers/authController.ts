@@ -65,6 +65,8 @@ export const Login = async (req:Request,res:Response,next:NextFunction):Promise<
         return;
       }
 
+      const token = Jwt.sign({id : user._id}, process.env.JWT_SECRET as string,
+      { expiresIn: "7d" })
   }catch(err){
     res.status(500).json({message : "Server Error!"})
   }
