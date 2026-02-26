@@ -3,6 +3,10 @@ import type { IUser } from "../models/user.js";
 import bcrypt from "bcryptjs";
 import User from "../models/user.js";
 import Jwt from "jsonwebtoken";
+import dotenv from "dotenv";
+dotenv.config();
+
+
 export const Register = async (
   req: Request,
   res: Response,
