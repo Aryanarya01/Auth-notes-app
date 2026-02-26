@@ -1,7 +1,7 @@
 import { Register, Login } from "../controllers/authController.js";
 import { Router } from "express";
 import { protect } from "../middleware/protect.js";
-export const router = Router();
+const router:Router = Router();
 
 router.post("/register", Register);
 router.post("/login", Login);
