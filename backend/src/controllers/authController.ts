@@ -58,6 +58,7 @@ export const Login = async (req:Request,res:Response,next:NextFunction):Promise<
         return;
       }
 
+      const isMatch = bcrypt.compare(password,user.password)
 
   }catch(err){
     res.status(500).json({message : "Server Error!"})
