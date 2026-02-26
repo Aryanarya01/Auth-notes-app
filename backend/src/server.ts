@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import {connectDB} from "./config/db.js"
-import { router } from "./routes/authRoutes.js";
+import router from "./routes/authRoutes.js";
 
 dotenv.config();
 
@@ -23,8 +23,8 @@ const port = process.env.PORT || 5000;
 app.use("/api/auth",router)
 
 app.use(express.json());
-
-router.get("/", (req, res) => {
+app.use(express.urlencoded({ extended: true }));
+app.get("/", (req, res) => {
   res.send("API running...");
 });
 Router

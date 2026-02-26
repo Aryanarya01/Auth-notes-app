@@ -8,3 +8,5 @@ router.post("/login", Login);
 router.get("/profile", protect, (req: any, res) => {
   res.json(req.user);
 });
+
+export default router;
