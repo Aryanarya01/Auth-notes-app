@@ -12,17 +12,21 @@ export const Register = async (
   next: NextFunction,
 ): Promise<void> => {
   try {
-    let { name, email, password }: IUser = req.body;
+    const { name, email, password } = req.body as {
+  name: string;
+  email: string;
+  password: string;
+};
     if (!name || !email || !password) {
       res.status(400).json({ message: "All fields required!" });
       return;
     }
     const existingUser = await User.findOne({ email });
     if (existingUser) {
-      res.status(400).json({ message: "User already exists!" });
+      res.status(400).json({ message: "User not exists!" });
       return;
     }
-    const hashedPassword: string = await bcrypt.hash("password", 10);
+    const hashedPassword: string = await bcrypt.hash(password, 10);
 
     const user = await User.create({
       name,
@@ -46,13 +50,16 @@ export const Login = async (
   next: NextFunction,
 ): Promise<void> => {
   try {
-    let { email, password }: { email: string; password: string } = req.body;
+    let { email, password }: { email: string, password: string } = req.body;
+
+
     if (!email || !password) {
       res.status(400).json({ message: "All fields required!" });
       return;
     }
 
-    const user = await User.findOne({ email });
+    const user = await User.findOne({email});
+
     if (!user) {
       res.status(400).json({ message: "User already exists!" });
       return;
@@ -69,17 +76,18 @@ export const Login = async (
       expiresIn: "7d",
     });
 
-    res.cookie("token",token, {
+    res.cookie("token", token, {
       httpOnly: true,
       secure: false, // true in production
       maxAge: 7 * 24 * 60 * 60 * 1000,
-    })
+    });
 
-      res.json({message : "Login Successfully!",
-        id:user._id,
-        name : user.name,
-        email:user.email,
-      })
+    res.json({
+      message: "Login Successfully!",
+      id: user._id,
+      name: user.name,
+      email: user.email,
+    });
   } catch (err) {
     res.status(500).json({ message: "Server Error!" });
   }
