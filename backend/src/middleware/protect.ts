@@ -12,7 +12,8 @@ interface AuthRequest extends Request{
             res.status(401).json({message : "Not Authorized!"});
             return;
         }
-        const decoded = Jwt 
+        const decoded = Jwt.verify(token, process.env.JWT_SECRET as string
+    ) as { id: string };
 
     }catch(err){
         res.status(401).json({message : "Invalid token!"})
