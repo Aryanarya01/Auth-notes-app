@@ -5,6 +5,6 @@ const router = Router();
 
 router.post("/register", Register);
 router.post("/login", Login);
-router.get("/profile",protect,(req,res)=>{
-    res.json({req.user})
+router.get("/profile",protect,(req:any,res)=>{
+    res.json(req.user)
 })
