@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { Model } from "mongoose";
 import type { INote } from "../types/types.js";
 
 const noteSchema = new mongoose.Schema<INote>({
@@ -16,4 +16,8 @@ const noteSchema = new mongoose.Schema<INote>({
       required : true,
     },
 },
-{timestamps : true})
+{timestamps : true});
+
+const Note : Model<INote> = mongoose.model<INote>("Note",noteSchema);
+
+e
