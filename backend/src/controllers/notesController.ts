@@ -21,3 +21,6 @@ export const createNote = async(req:AuthRequest,res:Response):Promise<void>=>{
         res.status(500).json({message : "Server Error!"});
     }
 }
+
+//get logged in user
+
