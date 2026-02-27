@@ -1,4 +1,5 @@
 import type { Request, Response } from "express";
+import { Note } from "../models/note.js";
 
 
 interface AuthRequest extends Request{
@@ -7,8 +8,14 @@ interface AuthRequest extends Request{
 
 
 //create Note
-export const createNote = async(req:AuthRequest,res:Response)=>{
+export const createNote = async(req:AuthRequest,res:Response):Promise<void>=>{
     try{
+        const {title,content} = req.body;
+        const note  =await Note.create({
+            title,
+            content,
+            user:req.user._id,
+        })
 
     }catch(err){
         res.status(500).json({message : "Server Error!"});
