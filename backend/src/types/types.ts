@@ -1,4 +1,4 @@
-import type { Document } from "mongoose";
+import mongoose , { Document } from "mongoose";
 
 export interface INote extends Document{
     title : string,
