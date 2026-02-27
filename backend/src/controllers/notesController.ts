@@ -24,3 +24,10 @@ export const createNote = async(req:AuthRequest,res:Response):Promise<void>=>{
 
 //get logged in user
 
+export const getNotes = async(req:AuthRequest,res:Response):Promise<void> =>{
+    try{
+
+    }catch(err){
+        res
+    }
+}
