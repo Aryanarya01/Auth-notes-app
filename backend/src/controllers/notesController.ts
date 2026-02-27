@@ -1,4 +1,4 @@
-import type { Request } from "express";
+import type { Request, Response } from "express";
 
 
 interface AuthRequest extends Request{
@@ -6,4 +6,11 @@ interface AuthRequest extends Request{
 }
 
 
-//
+//create Note
+export const createNote = async(req:AuthRequest,res:Response)=>{
+    try{
+
+    }catch(err){
+        res.status(500).json({message : "Server Error!"});
+    }
+}
