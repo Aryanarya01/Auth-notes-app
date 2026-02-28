@@ -27,9 +27,14 @@ export const getNotes = async (req, res) => {
 //  update note
 export const updateNote = async (req, res) => {
     try {
+        let { title, content } = req.body;
+        const note = await Note.findOneAndUpdate({ id: req.params._id, user: req.user._id }, {
+            title,
+            content,
+        }, { new: true });
     }
     catch (err) {
-        res.status(500).json({ message: "" });
+        res.status(500).json({ message: "Server Error " });
     }
 };
 //# sourceMappingURL=notesController.js.map

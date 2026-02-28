@@ -38,10 +38,15 @@ export const getNotes = async (
 
 
 //  update note
-export const updateNote = async(req:AuthRequest,res:Response)=>{
+export const updateNote = async(req:AuthRequest,res:Response):Promise<void>=>{
   try{
-
+    let {title,content} = req.body;
+     const note = await Note.findOneAndUpdate({id : req.params._id,user : req.user._id},{
+      title,
+      content,
+     },{new : true})
+     
   }catch(err){
-    res.status(500).json({message : ""})
+    res.status(500).json({message : "Server Error "})
   }
 }
