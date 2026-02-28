@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react"
+import { createContext, useContext, useEffect, useState } from "react"
 import {type User, type AuthContextType } from "../types/AuthTypes"
 
 const AuthContext = createContext<AuthContextType|null>(null);
@@ -39,4 +39,6 @@ const AuthProvider = ()=>{
     )
 }
 
-export const useAuth = ()
+export const useAuth = ()=>{
+    const context = useContext
+}
