@@ -34,6 +34,7 @@ export const updateNote = async (req, res) => {
         }, { new: true });
         if (!note) {
             res.status(400).json({ message: "Note not found!" });
+            return;
         }
     }
     catch (err) {

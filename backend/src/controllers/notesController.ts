@@ -53,6 +53,7 @@ export const updateNote = async (
     );
     if (!note) {
       res.status(400).json({ message: "Note not found!" });
+      return;
     }
   } catch (err) {
     res.status(500).json({ message: "Server Error " });
