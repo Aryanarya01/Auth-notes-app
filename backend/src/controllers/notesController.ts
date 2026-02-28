@@ -61,9 +61,10 @@ export const updateNote = async (
 
 
 // delete note function
-export const deleteNote = async (req:Request,res:Response)=>{
+export const deleteNote = async (req:AuthRequest,res:Response):Promise<void>=>{
   try{
-    
+      const note = await Note.findOneAndDelete({id :req.params._id,user : req.user._id},
+      )
   }catch(err){
     res.status(400).json({message : "Server Error!"});
   }
