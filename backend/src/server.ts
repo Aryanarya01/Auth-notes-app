@@ -2,10 +2,10 @@ import express, { Router } from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-import {connectDB} from "./config/db.js"
+import { connectDB } from "./config/db.js";
 import router from "./routes/authRoutes.js";
-import noteRouter from "./routes/noteRoutes.js"
- 
+import noteRouter from "./routes/noteRoutes.js";
+
 const port = process.env.PORT || 5000;
 //middleware
 const app = express();
@@ -17,20 +17,19 @@ app.use(
   cors({
     origin: "http://localhost:5173",
     credentials: true,
-  })
-); 
+  }),
+);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-
-app.use("/api/auth",router)
-app.use("/api/auth",noteRouter)
+app.use("/api/auth", router);
+app.use("/api/auth", noteRouter);
 
 app.get("/", (req, res) => {
   res.send("API running...");
 });
 
-app.listen(port,()=>{
-    console.log(`App is listening to port ${port}`);
-})
+app.listen(port, () => {
+  console.log(`App is listening to port ${port}`);
+});
