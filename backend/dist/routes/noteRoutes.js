@@ -4,4 +4,5 @@ import { protect } from "../middleware/protect.js";
 const router = express.Router();
 router.post("/", protect, createNote);
 router.get("/", protect, getNotes);
+export default router;
 //# sourceMappingURL=noteRoutes.js.map

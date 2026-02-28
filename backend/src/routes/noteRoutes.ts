@@ -8,3 +8,4 @@ const router:Router = express.Router();
 
 router.post("/",protect,createNote);
 router.get("/",protect,getNotes);   
+export default router;
