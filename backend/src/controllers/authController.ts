@@ -93,7 +93,7 @@ export const Login = async (
   }
 };
 
-
+//  logout function
 export const Logout = (req : Request,res:Response)=>{
   res.cookie("token","",{
        httpOnly: true,

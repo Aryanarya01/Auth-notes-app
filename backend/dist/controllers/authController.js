@@ -68,6 +68,7 @@ export const Login = async (req, res, next) => {
         res.status(500).json({ message: "Server Error!" });
     }
 };
+//  logout function
 export const Logout = (req, res) => {
     res.cookie("token", "", {
         httpOnly: true,
