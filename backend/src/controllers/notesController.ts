@@ -24,7 +24,6 @@ export const createNote = async (
 };
 
 //get logged in user
-
 export const getNotes = async (
   req: AuthRequest,
   res: Response,
@@ -36,3 +35,13 @@ export const getNotes = async (
     res.status(500).json({ message: "Server Error!" });
   }
 };
+
+
+//  update note
+export const updateNote = async(req:AuthRequest,res:Response)=>{
+  try{
+
+  }catch(err){
+    res.status(500).json({message : ""})
+  }
+}

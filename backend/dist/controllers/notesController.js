@@ -24,4 +24,12 @@ export const getNotes = async (req, res) => {
         res.status(500).json({ message: "Server Error!" });
     }
 };
+//  update note
+export const updateNote = async (req, res) => {
+    try {
+    }
+    catch (err) {
+        res.status(500).json({ message: "" });
+    }
+};
 //# sourceMappingURL=notesController.js.map

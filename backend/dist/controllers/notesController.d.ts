@@ -4,5 +4,6 @@ interface AuthRequest extends Request {
 }
 export declare const createNote: (req: AuthRequest, res: Response) => Promise<void>;
 export declare const getNotes: (req: AuthRequest, res: Response) => Promise<void>;
+export declare const updateNote: (req: AuthRequest, res: Response) => Promise<void>;
 export {};
 //# sourceMappingURL=notesController.d.ts.map
