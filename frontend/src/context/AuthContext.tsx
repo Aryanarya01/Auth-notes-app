@@ -1,9 +1,9 @@
-import { createContext, useContext, useEffect, useState } from "react"
+import { createContext, useContext, useEffect, useState, type ReactNode } from "react"
 import {type User, type AuthContextType } from "../types/AuthTypes"
 
 const AuthContext = createContext<AuthContextType|null>(null);
 
-const AuthProvider = ()=>{
+const AuthProvider = ({children}:{children : React.ReactNode})=>{
     const [user,setUser] = useState<User|null>(null);
     const [loading,setLoading] = useState<boolean>(true);
 
@@ -40,5 +40,6 @@ const AuthProvider = ()=>{
 }
 
 export const useAuth = ()=>{
-    const context = useContext
+    const context = useContext(AuthContext);
+
 }
