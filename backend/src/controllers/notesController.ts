@@ -27,7 +27,7 @@ export const createNote = async(req:AuthRequest,res:Response):Promise<void>=>{
 export const getNotes = async(req:AuthRequest,res:Response):Promise<void> =>{
     try{
         const notes = await Note.find({user : req.user._id});
-        
+        res.json(notes);
     }catch(err){
         res.status(500).json({message : "Server Error!"});
     }
