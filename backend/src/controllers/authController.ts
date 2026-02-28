@@ -6,8 +6,7 @@ import Jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 dotenv.config();
 
-
-//
+//  Register function
 export const Register = async (
   req: Request,
   res: Response,
@@ -15,10 +14,10 @@ export const Register = async (
 ): Promise<void> => {
   try {
     const { name, email, password } = req.body as {
-  name: string;
-  email: string;
-  password: string;
-};
+      name: string;
+      email: string;
+      password: string;
+    };
     if (!name || !email || !password) {
       res.status(400).json({ message: "All fields required!" });
       return;
@@ -53,15 +52,14 @@ export const Login = async (
   next: NextFunction,
 ): Promise<void> => {
   try {
-    let { email, password }: { email: string, password: string } = req.body;
-
+    let { email, password }: { email: string; password: string } = req.body;
 
     if (!email || !password) {
       res.status(400).json({ message: "All fields required!" });
       return;
     }
 
-    const user = await User.findOne({email});
+    const user = await User.findOne({ email });
 
     if (!user) {
       res.status(400).json({ message: "User already exists!" });
@@ -97,10 +95,10 @@ export const Login = async (
 };
 
 //  logout function
-export const Logout = (req : Request,res:Response)=>{
-  res.cookie("token","",{
-       httpOnly: true,
+export const Logout = (req: Request, res: Response) => {
+  res.cookie("token", "", {
+    httpOnly: true,
     expires: new Date(0),
   });
-  res.json({message :"Logout Successfully!"});
-}
+  res.json({ message: "Logout Successfully!" });
+};
