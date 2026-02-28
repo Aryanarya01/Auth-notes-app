@@ -26,8 +26,8 @@ export const createNote = async(req:AuthRequest,res:Response):Promise<void>=>{
 
 export const getNotes = async(req:AuthRequest,res:Response):Promise<void> =>{
     try{
-
+        const notes
     }catch(err){
-        res
+        res.status(500).json({message : "Server Error!"});
     }
 }
