@@ -58,3 +58,13 @@ export const updateNote = async (
     res.status(500).json({ message: "Server Error " });
   }
 };
+
+
+// delete note function
+export const deleteNote = async (req:Request,res:Response)=>{
+  try{
+    
+  }catch(err){
+    res.status(400).json({message : "Server Error!"});
+  }
+}

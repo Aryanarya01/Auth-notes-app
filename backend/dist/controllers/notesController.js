@@ -40,4 +40,12 @@ export const updateNote = async (req, res) => {
         res.status(500).json({ message: "Server Error " });
     }
 };
+// delete note function
+export const deleteNote = async (req, res) => {
+    try {
+    }
+    catch (err) {
+        res.status(400).json({ message: "Server Error!" });
+    }
+};
 //# sourceMappingURL=notesController.js.map
