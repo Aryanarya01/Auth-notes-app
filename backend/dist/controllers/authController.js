@@ -68,4 +68,10 @@ export const Login = async (req, res, next) => {
         res.status(500).json({ message: "Server Error!" });
     }
 };
+export const Logout = (req, res) => {
+    res.cookie("token", "", {
+        httpOnly: true,
+        expires: new Date(0),
+    });
+};
 //# sourceMappingURL=authController.js.map

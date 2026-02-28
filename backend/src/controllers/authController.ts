@@ -92,3 +92,11 @@ export const Login = async (
     res.status(500).json({ message: "Server Error!" });
   }
 };
+
+
+export const Logout = (req : Request,res:Response)=>{
+  res.cookie("token","",{
+       httpOnly: true,
+    expires: new Date(0),
+  })
+}
