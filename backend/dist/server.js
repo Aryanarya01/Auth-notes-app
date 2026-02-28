@@ -19,7 +19,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use("/api/auth", router);
-app.use("/api/auth", noteRouter);
+app.use("/api/notes", noteRouter);
 app.get("/", (req, res) => {
     res.send("API running...");
 });
