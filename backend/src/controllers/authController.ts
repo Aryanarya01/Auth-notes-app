@@ -6,6 +6,8 @@ import Jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 dotenv.config();
 
+
+//
 export const Register = async (
   req: Request,
   res: Response,
@@ -44,6 +46,7 @@ export const Register = async (
   }
 };
 
+//  login function
 export const Login = async (
   req: Request,
   res: Response,

@@ -3,6 +3,7 @@ import User from "../models/user.js";
 import Jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 dotenv.config();
+//
 export const Register = async (req, res, next) => {
     try {
         const { name, email, password } = req.body;
@@ -32,6 +33,7 @@ export const Register = async (req, res, next) => {
         res.status(500).json({ message: "Server Error!" });
     }
 };
+//  login function
 export const Login = async (req, res, next) => {
     try {
         let { email, password } = req.body;
