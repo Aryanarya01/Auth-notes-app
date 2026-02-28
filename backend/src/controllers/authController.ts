@@ -98,5 +98,6 @@ export const Logout = (req : Request,res:Response)=>{
   res.cookie("token","",{
        httpOnly: true,
     expires: new Date(0),
-  })
+  });
+  res.json({message :"Logout Successfully!"});
 }
