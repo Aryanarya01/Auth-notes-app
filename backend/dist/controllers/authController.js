@@ -78,5 +78,4 @@ export const Logout = (req, res) => {
     });
     res.json({ message: "Logout Successfully!" });
 };
-//
 //# sourceMappingURL=authController.js.map
