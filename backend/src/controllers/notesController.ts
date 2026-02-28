@@ -60,18 +60,22 @@ export const updateNote = async (
   }
 };
 
-
 // delete note function
-export const deleteNote = async (req:AuthRequest,res:Response):Promise<void>=>{
-  try{
-      const note = await Note.findOneAndDelete({id :req.params._id,user : req.user._id},
-      );
+export const deleteNote = async (
+  req: AuthRequest,
+  res: Response,
+): Promise<void> => {
+  try {
+    const note = await Note.findOneAndDelete({
+      id: req.params._id,
+      user: req.user._id,
+    });
 
-      if(!note){
-        res.status(400).json({message : "Note not found!"});
-        return;
-      }
-  }catch(err){
-    res.status(500).json({message : "Server Error!"});
+    if (!note) {
+      res.status(400).json({ message: "Note not found!" });
+      return;
+    }
+  } catch (err) {
+    res.status(500).json({ message: "Server Error!" });
   }
-}
+};
