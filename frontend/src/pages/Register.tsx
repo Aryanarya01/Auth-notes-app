@@ -11,7 +11,21 @@ const Register = ()=>{
     const [password,setPassword] = useState("");
 
     const handelRegister = async(e:React.FormEvent)=>{
-        const res = await
+        const res = await fetch("http://localhost:5000/api/auth/register",{
+            method : "POST",
+            headers : {
+                "Content-Type" : "application/json",
+            },
+            credentials : "include",
+            body : JSON.stringify({name,email,password})
+        });
+        const data = await res.json();
+        if(res.ok){
+            alert("Registered Successfully. Please login!");
+            navigate("/");
+        }else{
+            alert(data.message)
+        }
     }
      
     return(
