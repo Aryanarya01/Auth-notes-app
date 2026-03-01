@@ -30,7 +30,7 @@ const Login = () => {
     <>
       <div>
         <h1>Login</h1>
-        <form>
+        <form onSubmit={handelLogin}>
           <input
             type="text"
             value={email}
@@ -43,7 +43,7 @@ const Login = () => {
             placeholder="Enter Password..."
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button type="submit">Login</button>
+          <button type="submit">Login</button>      
           <p>
             Don't have account? <Link to="/register">Register</Link>
           </p>
