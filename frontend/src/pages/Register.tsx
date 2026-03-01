@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 const Register = ()=>{
@@ -38,6 +38,7 @@ const Register = ()=>{
                 <input type="email" value={email} placeholder="Enter Email.." onChange={(e)=>setEmail(e.target.value)} />
                 <input type="password" value={password} placeholder="Enter Password.." onChange={(e)=>setPassword(e.target.value)} />
                 <button type="submit">Register</button>
+                <p>Already have account? <Link to="/" >Login</Link></p>
             </form>
         </div>
 
