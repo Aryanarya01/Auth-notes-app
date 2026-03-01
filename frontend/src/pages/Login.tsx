@@ -34,7 +34,7 @@ const Login = ()=>{
                     <input type="text" value={email} placeholder="Enter Email..." onChange={(e)=>setEmail(e.target.value)} />
                     <input type="password" value={password} placeholder="Enter Password..." onChange={(e)=>setPassword(e.target.value)}/>
                     <button type="submit">Login</button>
-                    <p>Don't have account? <Link></Link></p>
+                    <p>Don't have account? <Link to="/register">Register</Link></p>
                 </form>
             </div>
         </>
