@@ -11,6 +11,7 @@ const Register = ()=>{
     const [password,setPassword] = useState("");
 
     const handelRegister = async(e:React.FormEvent)=>{
+        e.preventDefault()
         const res = await fetch("http://localhost:5000/api/auth/register",{
             method : "POST",
             headers : {
@@ -30,7 +31,15 @@ const Register = ()=>{
      
     return(
         <>
-        <h1>Register</h1>
+        <div>
+            <h1>Register</h1>
+            <form onSubmit={handelRegister}>
+                <input type="text" value={name} placeholder="Enter Name.." />
+                <input type="email" value={email} placeholder="Enter Email.." />
+                <input type="password" value={password} placeholder="Enter Password.." />
+            </form>
+        </div>
+
         </>
     )
 }
