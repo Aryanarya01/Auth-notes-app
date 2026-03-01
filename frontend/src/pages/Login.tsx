@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 const Login = ()=>{
     const navigate = useNavigate();
-
+    const {setUser} = useAuth();
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
 
@@ -17,10 +18,17 @@ const Login = ()=>{
             credentials : "include",
             body : JSON.stringify({email,password}),
         })
+        const data =await res.json();
+        if(res.ok){
+            setUser(data);
+            navigate("/notes");
+        }else{
+            alert(data.message);
+        }
     }
     return(
         <>
-         
+            di
         </>
     )
 }
