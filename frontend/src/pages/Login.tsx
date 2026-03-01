@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
 const Login = ()=>{
@@ -28,7 +28,15 @@ const Login = ()=>{
     }
     return(
         <>
-            di
+            <div>
+                <h1>Login</h1>
+                <form >
+                    <input type="text" value={email} placeholder="Enter Email..." onChange={(e)=>setEmail(e.target.value)} />
+                    <input type="password" value={password} placeholder="Enter Password..." onChange={(e)=>setPassword(e.target.value)}/>
+                    <button type="submit">Login</button>
+                    <p>Don't have account? <Link></Link></p>
+                </form>
+            </div>
         </>
     )
 }
