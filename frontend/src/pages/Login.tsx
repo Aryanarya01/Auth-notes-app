@@ -9,7 +9,14 @@ const Login = ()=>{
 
     const handelLogin  =async (e:React.FormEvent)=>{
         e.preventDefault();
-        
+        const res = await fetch("http://localhost:5000/api/auth/login",{
+            method : "POST",
+            headers : {
+                "Content-Type" : "application/json",
+            },
+            credentials : "include",
+            body : JSON.stringify({email,password}),
+        })
     }
     return(
         <>
