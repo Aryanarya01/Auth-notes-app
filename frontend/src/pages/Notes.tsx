@@ -40,6 +40,8 @@ const Notes = ()=>{
             fetchNotes()//refresh list
         }
     }
+
+    
     return(
         <>
         <h1>Notes</h1>
