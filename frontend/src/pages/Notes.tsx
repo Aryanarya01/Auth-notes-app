@@ -1,77 +1,83 @@
 import React, { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
-import {type Note } from "../types/NoteTypes";
+import { type Note } from "../types/NoteTypes";
 
+const Notes = () => {
+  const { logout } = useAuth();
+  const [notes, setNotes] = useState<Note[]>([]);
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
 
-const Notes = ()=>{
-    const {logout} = useAuth();
-    const [notes,setNotes] = useState<Note[]>([]);
-    const [title,setTitle] = useState("");
-    const [content,setContent] = useState("");
-
-    //fetch notes
-    const fetchNotes = async()=>{
-        const res = await fetch("http://localhost:5000/api/notes",{
-            credentials : "include"
-        });
-        if(res.ok){
-            const data = await res.json();
-            setNotes(data);
-        }
+  //fetch notes
+  const fetchNotes = async () => {
+    const res = await fetch("http://localhost:5000/api/notes", {
+      credentials: "include",
+    });
+    if (res.ok) {
+      const data = await res.json();
+      setNotes(data);
     }
+  };
 
-    useEffect(()=>{
-        fetchNotes();
-    },[])
+  useEffect(() => {
+    fetchNotes();
+  }, []);
 
-    //create notes
-    const handelCreate = async(e : React.FormEvent)=>{
-        const res =await fetch("http://localhost:5000/api/notes",{
-            method : "POST",
-            headers : {
-                "Content-Type" : "application/json",
-            },
-            credentials : "include",
-            body : JSON.stringify({title,content})
-        })
-        if(res.ok){
-            setTitle("");
-            setContent("");
-            fetchNotes()//refresh list
-        }
+  //create notes
+  const handelCreate = async (e: React.FormEvent) => {
+    const res = await fetch("http://localhost:5000/api/notes", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+      body: JSON.stringify({ title, content }),
+    });
+    if (res.ok) {
+      setTitle("");
+      setContent("");
+      fetchNotes(); //refresh list
     }
+  };
 
-    //delete note
-    const handelDelete = async (id:string)=>{
-        const res = await fetch(`http://localhost:5000/api/notes/${id}`,{
-            method : "DELETE",
-            credentials : "include",
-        });
-        fetchNotes()
-    }
-    return(
-        <>
-        <h1>My Notes...</h1>
-        <button onClick={logout}>Logout</button>
-        <form onSubmit={handelCreate}>
-            <input type="text" placeholder="Enter Title.." value={title} onChange={(e)=>setTitle(e.target.value)} />
-            <input type="text" placeholder="Enter Content.." value={content} onChange={(e)=>setContent(e.target.value)}  />
-            <button type="submit">Add Note..</button>
+  //delete note
+  const handelDelete = async (id: string) => {
+    const res = await fetch(`http://localhost:5000/api/notes/${id}`, {
+      method: "DELETE",
+      credentials: "include",
+    });
+    fetchNotes();
+  };
+  return (
+    <>
+      <h1>My Notes...</h1>
+      <button onClick={logout}>Logout</button>
+      <form onSubmit={handelCreate}>
+        <input
+          type="text"
+          placeholder="Enter Title.."
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Enter Content.."
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+        />
+        <button type="submit">Add Note..</button>
+      </form>
+      <hr />
 
-        </form>
-        <hr />
-
-        {
-            notes.map((note)=>(
-                <div key={note._id}>
-                    <h4>{note.title}</h4>
-                    <h4>{note.content}</h4>
-                    <button onClick={()=>handelDelete(note._id)}>Delete</button>
-                    <hr />
-                </div>
-            ))
-        }
-        </>
-    )
-}
+      {notes.map((note) => (
+        <div key={note._id}>
+          <h4>{note.title}</h4>
+          <h4>{note.content}</h4>
+          <button onClick={() => handelDelete(note._id)}>Delete</button>
+          <hr />
+        </div>
+      ))}
+    </>
+  );
+};
 export default Notes;
