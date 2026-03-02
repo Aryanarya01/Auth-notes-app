@@ -26,7 +26,7 @@ const Notes = ()=>{
 
     //create notes
     const handelCreate = async(e : React.FormEvent)=>{
-        const res = fetch("http://localhost:5000/api/notes",{
+        const res =await fetch("http://localhost:5000/api/notes",{
             method : "POST",
             headers : {
                 "Content-Type" : "application/json",
@@ -34,6 +34,11 @@ const Notes = ()=>{
             credentials : "include",
             body : JSON.stringify({title,content})
         })
+        if(res.ok){
+            setTitle("");
+            setContent("");
+
+        }
     }
     return(
         <>
