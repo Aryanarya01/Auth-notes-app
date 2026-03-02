@@ -47,7 +47,7 @@ const Notes = ()=>{
             method : "DELETE",
             credentials : "include",
         });
-        fetchNotes
+        fetchNotes()
     }
     return(
         <>
