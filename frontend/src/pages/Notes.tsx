@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
-import { Note } from "../types/NoteTypes";
+import {type Note } from "../types/NoteTypes";
 
 
 const Notes = ()=>{
