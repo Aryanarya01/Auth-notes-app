@@ -42,7 +42,7 @@ const Notes = () => {
 
   //delete note
   const handelDelete = async (id: string) => {
-    await fetch(`http://localhost:5000/api/notes/${id}`, {
+     await fetch(`http://localhost:5000/api/notes/${id}`, {
       method: "DELETE",
       credentials: "include",
     });
