@@ -41,7 +41,7 @@ const Notes = ()=>{
         }
     }
 
-    
+    //delete note
     return(
         <>
         <h1>Notes</h1>
