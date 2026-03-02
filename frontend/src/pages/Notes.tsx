@@ -42,7 +42,7 @@ const Notes = ()=>{
     }
 
     //delete note
-    const handelNote = async (id:string)=>{
+    const handelDelete = async (id:string)=>{
         const res = await fetch(`http://localhost:5000/api/notes/${id}`,{
             method : "DELETE",
             credentials : "include",
@@ -57,8 +57,20 @@ const Notes = ()=>{
             <input type="text" placeholder="Enter Title.." value={title} onChange={(e)=>setTitle(e.target.value)} />
             <input type="text" placeholder="Enter Content.." value={content} onChange={(e)=>setContent(e.target.value)}  />
             <button type="submit">Add Note..</button>
-            
+
         </form>
+        <hr />
+
+        {
+            notes.map((note)=>(
+                <div key={note._id}>
+                    <h4>{note.title}</h4>
+                    <h4>{note.content}</h4>
+                    <button onClick={()=>handelDelete(note._id)}>Delete</button>
+                    <hr />
+                </div>
+            ))
+        }
         </>
     )
 }
