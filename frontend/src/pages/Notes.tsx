@@ -51,7 +51,9 @@ const Notes = ()=>{
     }
     return(
         <>
-        <h1>Notes</h1>
+        <h1>My Notes...</h1>
+        <button onClick={logout}>Logout</button>
+        <form onSubmit={handelCreate}></form>
         </>
     )
 }
