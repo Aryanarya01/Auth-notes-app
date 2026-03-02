@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import {type Note } from "../types/NoteTypes";
 
@@ -19,6 +19,10 @@ const Notes = ()=>{
             setNotes(data);
         }
     }
+
+    useEffect(()=>{
+        
+    },[])
     return(
         <>
         <h1>Notes</h1>
