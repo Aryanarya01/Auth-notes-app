@@ -53,7 +53,11 @@ const Notes = ()=>{
         <>
         <h1>My Notes...</h1>
         <button onClick={logout}>Logout</button>
-        <form onSubmit={handelCreate}></form>
+        <form onSubmit={handelCreate}>
+            <input type="text" placeholder="Enter Title.." value={title} onChange={(e)=>setTitle(e.target.value)} />
+            <input type="text" placeholder="Enter Content.." value={content} onChange={(e)=>setContent(e.target.value)}  />
+            but
+        </form>
         </>
     )
 }
