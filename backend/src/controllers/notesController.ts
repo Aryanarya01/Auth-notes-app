@@ -67,7 +67,7 @@ export const deleteNote = async (
 ): Promise<void> => {
   try {
     const note = await Note.findOneAndDelete({
-      id: req.params._id,
+      _id: req.params.id,
       user: req.user._id,
     });
 
