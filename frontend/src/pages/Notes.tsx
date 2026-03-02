@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import {type Note } from "../types/NoteTypes";
 
@@ -23,6 +23,11 @@ const Notes = ()=>{
     useEffect(()=>{
         fetchNotes();
     },[])
+
+    //create notes
+    const handelCreate = async(e : React)=>{
+
+    }
     return(
         <>
         <h1>Notes</h1>
