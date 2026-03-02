@@ -46,7 +46,9 @@ const Notes = () => {
       method: "DELETE",
       credentials: "include",
     });
-    fetchNotes();
+    if(res.ok){
+        setNotes((prev)=>prev.filter((note)=>note._id !== id))
+    }
   };
   return (
     <>
