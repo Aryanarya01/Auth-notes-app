@@ -8,6 +8,17 @@ const Notes = ()=>{
     const [notes,setNotes] = useState<Note[]>([]);
     const [title,setTitle] = useState("");
     const [content,setContent] = useState("");
+
+    //fetch notes
+    const fetchNotes = async()=>{
+        const res = await fetch("http://localhost:5000/api/notes",{
+            credentials : "include"
+        });
+        if(res.ok){
+            const data = await res.json();
+            setNotes(data);
+        }
+    }
     return(
         <>
         <h1>Notes</h1>
