@@ -56,7 +56,8 @@ const Notes = ()=>{
         <form onSubmit={handelCreate}>
             <input type="text" placeholder="Enter Title.." value={title} onChange={(e)=>setTitle(e.target.value)} />
             <input type="text" placeholder="Enter Content.." value={content} onChange={(e)=>setContent(e.target.value)}  />
-            but
+            <button type="submit">Add Note..</button>
+            
         </form>
         </>
     )
