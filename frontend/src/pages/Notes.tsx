@@ -37,7 +37,7 @@ const Notes = ()=>{
         if(res.ok){
             setTitle("");
             setContent("");
-
+            fetchNotes()//refresh list
         }
     }
     return(
