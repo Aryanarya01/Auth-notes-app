@@ -46,6 +46,10 @@ const Notes = () => {
       method: "DELETE",
       credentials: "include",
     });
+      console.log("Status:", res.status);
+
+  const data = await res.json();
+  console.log("Response:", data);
     if(res.ok){
         setNotes((prev)=>prev.filter((note)=>note._id !== id))
     }

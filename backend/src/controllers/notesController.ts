@@ -75,6 +75,8 @@ export const deleteNote = async (
       res.status(400).json({ message: "Note not found!" });
       return;
     }
+       // ✅ SUCCESS RESPONSE ADD KARO
+    res.status(200).json({ message: "Note deleted successfully" });
   } catch (err) {
     res.status(500).json({ message: "Server Error!" });
   }
