@@ -70,8 +70,15 @@ const Notes = () => {
           body : JSON.stringify({title,content})
         });
         if(res.ok){
-          const up
+          const updatedNote = await res.json();
+
+          setNotes((prev)=>prev.map((note)=>note._id === editingId ? updatedNote : note))
+          setEditingId(null);
+          setTitle("");
+          setContent("")
         }
+    }else{
+      
     }
   }
 
