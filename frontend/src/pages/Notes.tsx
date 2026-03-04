@@ -61,7 +61,17 @@ const Notes = () => {
 
     if(editingId){
         //update
-        
+        const res = await fetch(`http://localhost:5000/api/notes/${editingId}`,{
+          method : "PUT",
+          credentials : "include",
+          headers : {
+            "Content-Type" : "application/json",
+          },
+          body : JSON.stringify({title,content})
+        });
+        if(res.ok){
+          const up
+        }
     }
   }
 
