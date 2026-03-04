@@ -55,6 +55,15 @@ const Notes = () => {
         setNotes((prev)=>prev.filter((note)=>note._id !== id))
     }
   };
+
+  const handelEdit =async (e:React.FormEvent)=>{
+    e.preventDefault();
+
+    if(editingId){
+      
+    }
+  }
+
   return (
     <>
       <h1>My Notes...</h1>
