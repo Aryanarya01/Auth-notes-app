@@ -7,6 +7,7 @@ const Notes = () => {
   const [notes, setNotes] = useState<Note[]>([]);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const [editingId,setEditingId] = useState<string|null>(null)
 
   //fetch notes
   const fetchNotes = async () => {
