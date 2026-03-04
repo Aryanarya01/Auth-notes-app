@@ -60,7 +60,8 @@ const Notes = () => {
     e.preventDefault();
 
     if(editingId){
-      
+        //update
+        
     }
   }
 
