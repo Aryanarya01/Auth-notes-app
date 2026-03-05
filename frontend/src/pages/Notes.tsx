@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { type Note } from "../types/NoteTypes";
 
@@ -9,6 +9,7 @@ const Notes = () => {
   const [content, setContent] = useState("");
   const [editingId, setEditingId] = useState<string | null>(null);
   const [loading,setLoading] = useState(false);
+  const [error,setError] = useState("");
 
   //fetch notes
   const fetchNotes = async () => {
@@ -19,6 +20,9 @@ const Notes = () => {
     if (res.ok) {
       const data = await res.json();
       setNotes(data);
+    }
+    if(!res.ok){
+      setError
     }
     setLoading(false)
   };
