@@ -122,7 +122,7 @@ const Notes = () => {
         </form>
         <hr />
         {notes.map((note) => (
-          <div key={note._id}>
+          <div className="note" key={note._id}>
             <h4>{note.title}</h4>
             <h4>{note.content}</h4>
             <button onClick={() => handelDelete(note._id)}>Delete</button>
