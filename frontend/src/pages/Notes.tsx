@@ -20,7 +20,7 @@ const Notes = () => {
       const data = await res.json();
       setNotes(data);
     }
-    setLoading(true)
+    setLoading(false)
   };
 
   useEffect(() => {
@@ -106,6 +106,7 @@ const Notes = () => {
     <>
       <div className="container" >
         <h1>My Notes...</h1>
+        {loading && <p>Loading notes...</p>}
         <form onSubmit={handelEdit}>
           <input
             type="text"
