@@ -44,7 +44,7 @@ export const updateNote = async (
   try {
     let { title, content } = req.body;
     const note = await Note.findOneAndUpdate(
-      { id: req.params._id, user: req.user._id },
+      { id: req.params.id, user: req.user._id },
       {
         title,
         content,
@@ -55,6 +55,7 @@ export const updateNote = async (
       res.status(400).json({ message: "Note not found!" });
       return;
     }
+    res
   } catch (err) {
     res.status(500).json({ message: "Server Error " });
   }
