@@ -5,11 +5,13 @@ import Register from "./pages/Register";
 import Profile from "./pages/Profile";
 import Notes from "./pages/Notes";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <>
       <BrowserRouter>
+      <Navbar />
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/register" element={<Register />} />
