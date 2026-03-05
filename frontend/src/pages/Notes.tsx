@@ -25,21 +25,21 @@ const Notes = () => {
   }, []);
 
   //create notes
-  const handelCreate = async (e: React.FormEvent) => {
-    const res = await fetch("http://localhost:5000/api/notes", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-      body: JSON.stringify({ title, content }),
-    });
-    if (res.ok) {
-      setTitle("");
-      setContent("");
-      fetchNotes(); //refresh list
-    }
-  };
+  // const handelCreate = async (e: React.FormEvent) => {
+  //   const res = await fetch("http://localhost:5000/api/notes", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     credentials: "include",
+  //     body: JSON.stringify({ title, content }),
+  //   });
+  //   if (res.ok) {
+  //     setTitle("");
+  //     setContent("");
+  //     fetchNotes(); //refresh list
+  //   }
+  // };
 
   //delete note
   const handelDelete = async (id: string) => {
