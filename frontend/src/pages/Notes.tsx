@@ -101,7 +101,7 @@ const Notes = () => {
 
   return (
     <>
-      <div >
+      <div className="container" >
         <h1>My Notes...</h1>
         <form onSubmit={handelEdit}>
           <input
