@@ -7,6 +7,7 @@ const Navbar = () => {
   return (
     <nav>
       <h3>Notes App</h3>
+      <p>Welcome {user?.name}</p>
       <div>
         <Link to="/notes">Notes</Link>| <Link to="/profile">Profile</Link>|{" "}
         {user && <button onClick={logout}>Logout</button>}
