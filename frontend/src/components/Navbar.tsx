@@ -10,6 +10,7 @@ import { useAuth } from "../context/AuthContext";
                 <div>
                     <Link to="/notes">Notes</Link>|{" "}
                     <Link  to="/profile" >Profile</Link>|{" "}
+                    {user && <button onClick={logout}>Logout</button>}
                 </div>
             </nav>
         )
