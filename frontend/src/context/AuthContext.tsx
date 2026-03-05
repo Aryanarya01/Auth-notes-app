@@ -11,7 +11,7 @@ const AuthContext = createContext<AuthContextType | null>(null);
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
     const checkUser = async () => {
@@ -40,7 +40,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   };
   return (
     <>
-      <AuthContext.Provider value={{ user, setUser, loading, logout }}>
+      <AuthContext.Provider value={{ user, setUser, loading,setLoading, logout }}>
         {children}
       </AuthContext.Provider>
     </>

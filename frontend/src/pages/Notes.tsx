@@ -3,7 +3,7 @@ import { useAuth } from "../context/AuthContext";
 import { type Note } from "../types/NoteTypes";
 
 const Notes = () => {
-  const { logout,loading } = useAuth();
+  const { logout,loading,setLoading } = useAuth();
   const [notes, setNotes] = useState<Note[]>([]);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -11,6 +11,7 @@ const Notes = () => {
 
   //fetch notes
   const fetchNotes = async () => {
+    setLoading(true)
     const res = await fetch("http://localhost:5000/api/notes", {
       credentials: "include",
     });
@@ -18,6 +19,7 @@ const Notes = () => {
       const data = await res.json();
       setNotes(data);
     }
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -103,6 +105,7 @@ const Notes = () => {
     <>
       <div className="container" >
         <h1>My Notes...</h1>
+        {loading && <p>Loading notes...</p>}
         <form onSubmit={handelEdit}>
           <input
             type="text"
