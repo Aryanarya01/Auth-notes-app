@@ -100,7 +100,7 @@ const Notes = () => {
     <>
       <h1>My Notes...</h1>
       <button onClick={logout}>Logout</button>
-      <form onSubmit={handelCreate}>
+      <form onSubmit={handelEdit}>
         <input
           type="text"
           placeholder="Enter Title.."
