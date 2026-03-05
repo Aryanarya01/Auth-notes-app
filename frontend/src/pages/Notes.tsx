@@ -78,6 +78,7 @@ const Notes = () => {
         setEditingId(null);
         setTitle("");
         setContent("");
+      
       }
     } else {
       // CREATE
@@ -127,9 +128,9 @@ const Notes = () => {
           <button onClick={() => handelDelete(note._id)}>Delete</button>
           <button
             onClick={() => {
-              (setEditingId(note._id),
+              setEditingId(note._id),
                 setTitle(note.title),
-                setContent(note.content));
+                setContent(note.content);
             }}
           >
             Edit
