@@ -113,7 +113,7 @@ const Notes = () => {
           value={content}
           onChange={(e) => setContent(e.target.value)}
         />
-        <button type="submit">Add Note..</button>
+        <button type="submit">{editingId ? "Update Note.." : "Add Note.."}</button>
       </form>
       <hr />
 
@@ -122,6 +122,11 @@ const Notes = () => {
           <h4>{note.title}</h4>
           <h4>{note.content}</h4>
           <button onClick={() => handelDelete(note._id)}>Delete</button>
+          <button onClick={()=>{
+            setEditingId(note._id),
+            setTitle(note.title),
+            setContent(note.content)
+          }}>Edit</button>
           <hr />
         </div>
       ))}
