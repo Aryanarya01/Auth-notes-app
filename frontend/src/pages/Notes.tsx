@@ -22,7 +22,7 @@ const Notes = () => {
       setNotes(data);
     }
     if(!res.ok){
-      setError
+      setError("Failed to load notes");
     }
     setLoading(false)
   };
@@ -111,6 +111,7 @@ const Notes = () => {
       <div className="container" >
         <h1>My Notes...</h1>
         {loading && <p>Loading notes...</p>}
+        {error && <p>{error}</p>}
         <form onSubmit={handelEdit}>
           <input
             type="text"
