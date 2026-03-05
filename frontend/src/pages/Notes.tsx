@@ -78,7 +78,7 @@ const Notes = () => {
         setEditingId(null);
         setTitle("");
         setContent("");
-      
+        
       }
     } else {
       // CREATE
@@ -94,6 +94,7 @@ const Notes = () => {
         setNotes((prev) => [newNote, ...prev]);
         setTitle("");
         setContent("");
+        fetchNotes();
       }
     }
   };
