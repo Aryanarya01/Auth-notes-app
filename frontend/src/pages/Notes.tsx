@@ -3,11 +3,12 @@ import { useAuth } from "../context/AuthContext";
 import { type Note } from "../types/NoteTypes";
 
 const Notes = () => {
-  const { logout,loading,setLoading } = useAuth();
+  const { logout } = useAuth();
   const [notes, setNotes] = useState<Note[]>([]);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [editingId, setEditingId] = useState<string | null>(null);
+  const [loading,setLoading] = useState(false);
 
   //fetch notes
   const fetchNotes = async () => {
@@ -19,7 +20,7 @@ const Notes = () => {
       const data = await res.json();
       setNotes(data);
     }
-    setLoading(false);
+    setLoading(true)
   };
 
   useEffect(() => {
@@ -105,7 +106,6 @@ const Notes = () => {
     <>
       <div className="container" >
         <h1>My Notes...</h1>
-        {loading && <p>Loading notes...</p>}
         <form onSubmit={handelEdit}>
           <input
             type="text"
