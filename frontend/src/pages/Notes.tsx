@@ -78,7 +78,19 @@ const Notes = () => {
           setContent("")
         }
     }else{
-      
+       // CREATE
+    const res = await fetch("http://localhost:5000/api/notes", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      credentials: "include",
+      body: JSON.stringify({ title, content }),
+    });
+
+    if (res.ok) {
+      const newNote = await res.json();
+      setNotes((prev) => [newNote, ...prev]);
+      setTitle("");
+      setContent("");
     }
   }
 
