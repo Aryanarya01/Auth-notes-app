@@ -102,7 +102,6 @@ const Notes = () => {
   return (
     <>
       <h1>My Notes...</h1>
-      <button onClick={logout}>Logout</button>
       <form onSubmit={handelEdit}>
         <input
           type="text"
