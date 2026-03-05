@@ -101,43 +101,44 @@ const Notes = () => {
 
   return (
     <>
-      <h1>My Notes...</h1>
-      <form onSubmit={handelEdit}>
-        <input
-          type="text"
-          placeholder="Enter Title.."
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Enter Content.."
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-        />
-        <button type="submit">
-          {editingId ? "Update Note.." : "Add Note.."}
-        </button>
-      </form>
-      <hr />
-
-      {notes.map((note) => (
-        <div key={note._id}>
-          <h4>{note.title}</h4>
-          <h4>{note.content}</h4>
-          <button onClick={() => handelDelete(note._id)}>Delete</button>
-          <button
-            onClick={() => {
-              setEditingId(note._id),
-                setTitle(note.title),
-                setContent(note.content);
-            }}
-          >
-            Edit
+      <div >
+        <h1>My Notes...</h1>
+        <form onSubmit={handelEdit}>
+          <input
+            type="text"
+            placeholder="Enter Title.."
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Enter Content.."
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+          />
+          <button type="submit">
+            {editingId ? "Update Note.." : "Add Note.."}
           </button>
-          <hr />
-        </div>
-      ))}
+        </form>
+        <hr />
+        {notes.map((note) => (
+          <div key={note._id}>
+            <h4>{note.title}</h4>
+            <h4>{note.content}</h4>
+            <button onClick={() => handelDelete(note._id)}>Delete</button>
+            <button
+              onClick={() => {
+                setEditingId(note._id),
+                  setTitle(note.title),
+                  setContent(note.content);
+              }}
+            >
+              Edit
+            </button>
+            <hr />
+          </div>
+        ))}
+      </div>
     </>
   );
 };
