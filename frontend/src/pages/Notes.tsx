@@ -3,7 +3,7 @@ import { useAuth } from "../context/AuthContext";
 import { type Note } from "../types/NoteTypes";
 
 const Notes = () => {
-  const { logout } = useAuth();
+  const { logout,loading } = useAuth();
   const [notes, setNotes] = useState<Note[]>([]);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
