@@ -78,7 +78,7 @@ const Notes = () => {
         setEditingId(null);
         setTitle("");
         setContent("");
-        
+       fetchNotes();
       }
     } else {
       // CREATE
