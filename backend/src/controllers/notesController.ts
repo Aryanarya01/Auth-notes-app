@@ -44,7 +44,7 @@ export const updateNote = async (
   try {
     let { title, content } = req.body;
     const note = await Note.findOneAndUpdate(
-      { id: req.params.id, user: req.user._id },
+      { _id: req.params.id, user: req.user._id },
       {
         title,
         content,

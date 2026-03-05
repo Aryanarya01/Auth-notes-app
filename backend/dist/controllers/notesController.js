@@ -28,7 +28,7 @@ export const getNotes = async (req, res) => {
 export const updateNote = async (req, res) => {
     try {
         let { title, content } = req.body;
-        const note = await Note.findOneAndUpdate({ id: req.params.id, user: req.user._id }, {
+        const note = await Note.findOneAndUpdate({ _id: req.params.id, user: req.user._id }, {
             title,
             content,
         }, { new: true });
