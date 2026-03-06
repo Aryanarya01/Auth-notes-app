@@ -130,23 +130,25 @@ const Notes = () => {
           </button>
         </form>
         <hr />
-        {notes.map((note) => (
-          <div className="note" key={note._id}>
-            <h4>{note.title}</h4>
-            <h4>{note.content}</h4>
-            <button className="delete-btn" onClick={() => handelDelete(note._id)}>Delete</button>
-            <button className="edit-btn"
-              onClick={() => {
-                setEditingId(note._id),
-                  setTitle(note.title),
-                  setContent(note.content);
-              }}
-            >
-              Edit
-            </button>
-            <hr />
-          </div>
-        ))}
+        <div className="note-grid">
+          {notes.map((note) => (
+            <div className="note" key={note._id}>
+              <h4>{note.title}</h4>
+              <h4>{note.content}</h4>
+              <button className="delete-btn" onClick={() => handelDelete(note._id)}>Delete</button>
+              <button className="edit-btn"
+                onClick={() => {
+                  setEditingId(note._id),
+                    setTitle(note.title),
+                    setContent(note.content);
+                }}
+              >
+                Edit
+              </button>
+              <hr />
+            </div>
+          ))}
+        </div>
       </div>
     </>
   );
