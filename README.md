@@ -5,6 +5,10 @@
 
 A simple full stack notes application with authentication where users can create, edit, and delete their personal notes.
 
+## About
+
+This project is a full stack notes application where users can register, log in, and manage their personal notes. Each user can create, edit, and delete their own notes. The app uses JWT cookie-based authentication to protect routes and ensure that only logged-in users can access their data.
+
 ## 🚀 Tech Stack
 
 Frontend
