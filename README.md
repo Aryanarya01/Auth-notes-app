@@ -1,7 +1,7 @@
 
 <img width="1914" height="926" alt="Screenshot 2026-03-06 163847" src="https://github.com/user-attachments/assets/07b73380-e016-494b-9c44-f5513c0e8f0b" />
 
-# 📝 Full Stack Notes App
+# 📝 Full Stack Notes App.
 
 A simple full stack notes application with authentication where users can create, edit, and delete their personal notes.
 
